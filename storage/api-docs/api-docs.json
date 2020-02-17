@@ -1,0 +1,1137 @@
+{
+    "swagger": "2.0",
+    "info": {
+        "title": "Booking Event \ud83c\udf84",
+        "description": "L5 Swagger API",
+        "version": "1.0.0"
+    },
+    "basePath": "/api",
+    "schemes": [
+        "http"
+    ],
+    "paths": {
+        "/account/update-profile": {
+            "post": {
+                "tags": [
+                    "Account"
+                ],
+                "summary": "Update Profile",
+                "operationId": "api.updateProfile",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "background",
+                        "in": "formData",
+                        "description": "Background",
+                        "required": false,
+                        "type": "file"
+                    },
+                    {
+                        "name": "image",
+                        "in": "formData",
+                        "description": "Image",
+                        "required": false,
+                        "type": "file"
+                    },
+                    {
+                        "name": "image_intro",
+                        "in": "formData",
+                        "description": "Image Introduce",
+                        "required": false,
+                        "type": "file"
+                    },
+                    {
+                        "name": "flag",
+                        "in": "formData",
+                        "description": "Flag",
+                        "required": false,
+                        "type": "file"
+                    },
+                    {
+                        "name": "description",
+                        "in": "formData",
+                        "description": "Description",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Server is OK!"
+                    },
+                    "500": {
+                        "description": "Internal server error!"
+                    }
+                },
+                "security": [
+                    {
+                        "userToken": []
+                    }
+                ]
+            }
+        },
+        "/account/change-password": {
+            "post": {
+                "tags": [
+                    "Account"
+                ],
+                "summary": "Change Password",
+                "operationId": "api.changePass",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "old_password": "thanhlong",
+                                "new_password": "123456"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Server is OK!"
+                    },
+                    "500": {
+                        "description": "Internal server error!"
+                    }
+                },
+                "security": [
+                    {
+                        "userToken": []
+                    }
+                ]
+            }
+        },
+        "/auth/login": {
+            "post": {
+                "tags": [
+                    "Authenticate"
+                ],
+                "summary": "Login User",
+                "operationId": "/auth/login",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Authenticate Login",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "email": "thanhlong@gmail.com",
+                                "password": "123456"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Server is OK!"
+                    },
+                    "500": {
+                        "description": "Internal server error!"
+                    }
+                }
+            }
+        },
+        "/auth/sign-up": {
+            "post": {
+                "tags": [
+                    "Authenticate"
+                ],
+                "summary": "Sign Up User",
+                "operationId": "api.v1.signUp",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Authenticate Sign Up",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "first_name": "Thanh",
+                                "last_name": "Long",
+                                "username": "thanhlong97",
+                                "password": "123456",
+                                "email": "thanhlong@gmail.com",
+                                "dob": "1998/11/02",
+                                "phone": "0987654321",
+                                "gender": "1",
+                                "address": "TPHCM",
+                                "type": "1"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Server is OK!"
+                    },
+                    "500": {
+                        "description": "Internal server error!"
+                    }
+                }
+            }
+        },
+        "/auth/active": {
+            "post": {
+                "tags": [
+                    "Authenticate"
+                ],
+                "summary": "Active User",
+                "operationId": "/auth/active",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "Authenticate Active",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "token": "58088415d56f49d7b1c048255d99c297"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Server is OK!"
+                    },
+                    "500": {
+                        "description": "Internal server error!"
+                    }
+                }
+            }
+        },
+        "/auth/forgot-password": {
+            "post": {
+                "tags": [
+                    "Authenticate"
+                ],
+                "summary": "Forgot Password",
+                "operationId": "api.forgotPassword",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "email": "huythanhlong1997@gmail.com"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Server is OK!"
+                    },
+                    "500": {
+                        "description": "Internal server error!"
+                    }
+                }
+            }
+        },
+        "/auth/new-password": {
+            "post": {
+                "tags": [
+                    "Authenticate"
+                ],
+                "summary": "New Password",
+                "operationId": "api.newPassword",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "token": "",
+                                "password": ""
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Server is OK!"
+                    },
+                    "500": {
+                        "description": "Internal server error!"
+                    }
+                }
+            }
+        },
+        "/auth/get-infor": {
+            "get": {
+                "tags": [
+                    "Authenticate"
+                ],
+                "summary": "Get User Info",
+                "operationId": "/auth/get-infor",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Server is OK!"
+                    },
+                    "500": {
+                        "description": "Internal server error!"
+                    }
+                },
+                "security": [
+                    {
+                        "userToken": []
+                    }
+                ]
+            }
+        },
+        "/comment/create": {
+            "post": {
+                "tags": [
+                    "Comment"
+                ],
+                "summary": "Create Comment",
+                "operationId": "api.createComment",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "post_id": "1",
+                                "content": "C\u00f2n Nh\u1eadn Ng\u01b0\u1eddi d\u1ef1 s\u1ef1 ki\u1ec7n kh\u00f4ng ?"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Server is OK!"
+                    },
+                    "500": {
+                        "description": "Internal server error!"
+                    }
+                },
+                "security": [
+                    {
+                        "userToken": []
+                    }
+                ]
+            }
+        },
+        "/comment/get-all-comment": {
+            "post": {
+                "tags": [
+                    "Comment"
+                ],
+                "summary": "Get Comment By Id Post",
+                "description": "",
+                "operationId": "api.getAllCommentByPost",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "post_id": "1"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Server is OK!"
+                    },
+                    "500": {
+                        "description": "Internal server error!"
+                    }
+                }
+            }
+        },
+        "/comment/update": {
+            "post": {
+                "tags": [
+                    "Comment"
+                ],
+                "summary": "Update Comment",
+                "operationId": "api.updateComment",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "id_comment": "1",
+                                "content": ""
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Server is OK!"
+                    },
+                    "500": {
+                        "description": "Internal server error!"
+                    }
+                },
+                "security": [
+                    {
+                        "userToken": []
+                    }
+                ]
+            }
+        },
+        "/comment/delete": {
+            "post": {
+                "tags": [
+                    "Comment"
+                ],
+                "summary": "Delete Comment",
+                "operationId": "api.deleteComment",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "id_comment": "1"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Server is OK!"
+                    },
+                    "500": {
+                        "description": "Internal server error!"
+                    }
+                },
+                "security": [
+                    {
+                        "userToken": []
+                    }
+                ]
+            }
+        },
+        "/reply/create": {
+            "post": {
+                "tags": [
+                    "Reply Comment"
+                ],
+                "summary": "Create Reply Comment",
+                "operationId": "api.createReplyComment",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "comment_id": "1",
+                                "content": "C\u00f2n Nh\u00e9 B\u1ea1n?"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Server is OK!"
+                    },
+                    "500": {
+                        "description": "Internal server error!"
+                    }
+                },
+                "security": [
+                    {
+                        "userToken": []
+                    }
+                ]
+            }
+        },
+        "/reply/get-all-reply": {
+            "post": {
+                "tags": [
+                    "Reply Comment"
+                ],
+                "summary": "Get Reply By Id Comment",
+                "description": "",
+                "operationId": "api.getAllReplyByCommentId",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "comment_id": "1"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Server is OK!"
+                    },
+                    "500": {
+                        "description": "Internal server error!"
+                    }
+                }
+            }
+        },
+        "/reply/update": {
+            "post": {
+                "tags": [
+                    "Reply Comment"
+                ],
+                "summary": "Update Reply By User",
+                "operationId": "api.updateReply",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "id_reply": "1",
+                                "content": "h\u1ee7y b\u1ecf \u0111\u0103ng k\u00fd!"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Server is OK!"
+                    },
+                    "500": {
+                        "description": "Internal server error!"
+                    }
+                },
+                "security": [
+                    {
+                        "userToken": []
+                    }
+                ]
+            }
+        },
+        "/reply/delete": {
+            "post": {
+                "tags": [
+                    "Reply Comment"
+                ],
+                "summary": "Delete Reply By User",
+                "operationId": "api.deleteReply",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "id_reply": "1"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Server is OK!"
+                    },
+                    "500": {
+                        "description": "Internal server error!"
+                    }
+                },
+                "security": [
+                    {
+                        "userToken": []
+                    }
+                ]
+            }
+        },
+        "/experience/create": {
+            "post": {
+                "tags": [
+                    "Experience"
+                ],
+                "summary": "Experience create",
+                "operationId": "api.experience.create",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "title": "kinh nghi\u1ec7m xyz",
+                                "post_time": "2019/12/10",
+                                "description": "abc"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Server is OK!"
+                    },
+                    "500": {
+                        "description": "Internal server error!"
+                    }
+                },
+                "security": [
+                    {
+                        "userToken": []
+                    }
+                ]
+            }
+        },
+        "/experience/update": {
+            "post": {
+                "tags": [
+                    "Experience"
+                ],
+                "summary": "Experience update",
+                "operationId": "api.experience.update",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "id": "1",
+                                "title": "kinh nghi\u1ec7m abc",
+                                "post_time": "2019/12/10",
+                                "description": "abc"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Server is OK!"
+                    },
+                    "500": {
+                        "description": "Internal server error!"
+                    }
+                },
+                "security": [
+                    {
+                        "userToken": []
+                    }
+                ]
+            }
+        },
+        "/experience/get": {
+            "get": {
+                "tags": [
+                    "Experience"
+                ],
+                "summary": "Get experience",
+                "operationId": "api.experience.get",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Server is OK!"
+                    },
+                    "500": {
+                        "description": "Internal server error!"
+                    }
+                },
+                "security": [
+                    {
+                        "userToken": []
+                    }
+                ]
+            }
+        },
+        "/experience/delete": {
+            "post": {
+                "tags": [
+                    "Experience"
+                ],
+                "summary": "Experience delete",
+                "operationId": "api.experience.delete",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "id": "1"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Server is OK!"
+                    },
+                    "500": {
+                        "description": "Internal server error!"
+                    }
+                },
+                "security": [
+                    {
+                        "userToken": []
+                    }
+                ]
+            }
+        },
+        "/follow/new": {
+            "post": {
+                "tags": [
+                    "Follow"
+                ],
+                "summary": "New Follow",
+                "operationId": "api.newFollow",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "followUser": "2"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Server is OK!"
+                    },
+                    "500": {
+                        "description": "Internal server error!"
+                    }
+                },
+                "security": [
+                    {
+                        "userToken": []
+                    }
+                ]
+            }
+        },
+        "/follow/list": {
+            "get": {
+                "tags": [
+                    "Follow"
+                ],
+                "summary": "List Follow",
+                "description": "",
+                "operationId": "api.listFollow",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Server is OK!"
+                    },
+                    "500": {
+                        "description": "Internal server error!"
+                    }
+                },
+                "security": [
+                    {
+                        "userToken": []
+                    }
+                ]
+            }
+        },
+        "/follow/unfollow": {
+            "post": {
+                "tags": [
+                    "Follow"
+                ],
+                "summary": "UnFollow User",
+                "operationId": "api.unFollow",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "unFollowUser": "2"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Server is OK!"
+                    },
+                    "500": {
+                        "description": "Internal server error!"
+                    }
+                },
+                "security": [
+                    {
+                        "userToken": []
+                    }
+                ]
+            }
+        },
+        "/post/create": {
+            "post": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "Create Post",
+                "operationId": "api.createPost",
+                "consumes": [
+                    "multipart/form-data"
+                ],
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "title",
+                        "in": "formData",
+                        "description": "title post",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "content",
+                        "in": "formData",
+                        "description": "content post",
+                        "required": false,
+                        "type": "string"
+                    },
+                    {
+                        "name": "image[]",
+                        "in": "formData",
+                        "description": "image post",
+                        "required": false,
+                        "type": "file"
+                    },
+                    {
+                        "name": "video",
+                        "in": "formData",
+                        "description": "video post",
+                        "required": false,
+                        "type": "string"
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Server is OK!"
+                    },
+                    "500": {
+                        "description": "Internal server error!"
+                    }
+                },
+                "security": [
+                    {
+                        "userToken": []
+                    }
+                ]
+            }
+        },
+        "/post/get-all-post": {
+            "get": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "Get All Post",
+                "operationId": "api.getAllPost",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Server is OK!"
+                    },
+                    "500": {
+                        "description": "Internal server error!"
+                    }
+                }
+            }
+        },
+        "/post/get-all-post-by-user": {
+            "get": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "Get All Post By User",
+                "operationId": "api.getAllPostByUser",
+                "produces": [
+                    "application/json"
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Server is OK!"
+                    },
+                    "500": {
+                        "description": "Internal server error!"
+                    }
+                },
+                "security": [
+                    {
+                        "userToken": []
+                    }
+                ]
+            }
+        },
+        "/post/update": {
+            "post": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "Update Post",
+                "operationId": "api.updatePost",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "body",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "id": "1",
+                                "title": "title 1",
+                                "content": "content 1"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Server is OK!"
+                    },
+                    "500": {
+                        "description": "Internal server error!"
+                    }
+                },
+                "security": [
+                    {
+                        "userToken": []
+                    }
+                ]
+            }
+        },
+        "/post/delete": {
+            "post": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "Delete Post",
+                "operationId": "api.deletePost",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "body",
+                        "description": "id post",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "id": "1"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Server is OK!"
+                    },
+                    "500": {
+                        "description": "Internal server error!"
+                    }
+                },
+                "security": [
+                    {
+                        "userToken": []
+                    }
+                ]
+            }
+        },
+        "/post/delete-post-by-user": {
+            "post": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "Delete Post By User",
+                "operationId": "api.deletePostByUser",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id User",
+                        "in": "body",
+                        "description": "",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "idUserPost": "1"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Server is OK!"
+                    },
+                    "500": {
+                        "description": "Internal server error!"
+                    }
+                },
+                "security": [
+                    {
+                        "userToken": []
+                    }
+                ]
+            }
+        },
+        "/post/register-work": {
+            "post": {
+                "tags": [
+                    "Post"
+                ],
+                "summary": "Register work",
+                "operationId": "api.register",
+                "produces": [
+                    "application/json"
+                ],
+                "parameters": [
+                    {
+                        "name": "id",
+                        "in": "body",
+                        "description": "id post",
+                        "required": true,
+                        "schema": {
+                            "example": {
+                                "postID": "1"
+                            }
+                        }
+                    }
+                ],
+                "responses": {
+                    "200": {
+                        "description": "Server is OK!"
+                    },
+                    "500": {
+                        "description": "Internal server error!"
+                    }
+                },
+                "security": [
+                    {
+                        "userToken": []
+                    }
+                ]
+            }
+        }
+    },
+    "definitions": {
+        "User": {
+            "type": "object",
+            "xml": {
+                "name": "User"
+            }
+        }
+    },
+    "securityDefinitions": {
+        "userToken": {
+            "type": "apiKey",
+            "name": "Authorization",
+            "in": "header"
+        }
+    }
+}
